@@ -1,2 +1,2 @@
 # haike-sms-api
-haike sms api project
+海珂短信平台短信接口项目v1.50
