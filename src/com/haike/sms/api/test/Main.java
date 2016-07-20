@@ -23,12 +23,12 @@ public class Main
 	/**
 	 * 接口调用时使用的系统用户名(实际项目中从配置中获取)
 	 */
-	private static String	account = "zzjsadmin";
+	private static String	account = "zztest";
 	
 	/**
 	 * 接口调用时使用的系统用户对应的密码(实际项目中从配置中获取)
 	 */
-	private static String	password = "123456";
+	private static String	password = "111111";
 	/**
 	 * 接口调用时使用的接口编码(实际项目中从配置中获取)
 	 */
@@ -36,7 +36,7 @@ public class Main
 	/**
 	 * 接口服务器的目标地址(实际项目中从配置中获取)
 	 */
-	private static String  endpoint = "http://211.142.183.50:18080/";
+	private static String  endpoint = "http://127.0.0.1:8080/";
 	/**
 	 * 接口是否在调试状态(实际项目中从配置中获取)
 	 */
