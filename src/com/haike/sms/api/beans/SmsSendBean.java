@@ -77,7 +77,7 @@ public class SmsSendBean extends SmRequest
 	 * 	WX:通过微信发送
 	 * 	ALL:同时发短信和微信
 	 */
-	private String				SendChannel	= "SMS";
+	private String				SendChannel	= ApiConstant.SendChannel_SMS;
 
 	//
 	public String getMobiles()
