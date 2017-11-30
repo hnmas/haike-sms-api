@@ -35,9 +35,9 @@ public class ApiConstant
 	 */
 	public static String	DocVersion				= "1.0";
 	/**
-	 * 当前短信接口业务逻辑的版本号
+	 * 当前短信接口业务逻辑的版本号(1.50纯短信，1.60支撑微信)
 	 */
-	public static String	ApiVersion				= "1.50";
+	public static String	ApiVersion				= "1.60";
 	//---------------------------------------------------------------------
 	public static String	SmsLogPath				= "logs" + sep + "sms" + sep;
 	public static String 	SmsLogFileTxt			= ".txt";
@@ -93,4 +93,16 @@ public class ApiConstant
 	 */
 	public static int		Priority_Low			= 3;
 	//---------------------------------------------------------------------
+	/**
+	 * 接口信息发送渠道:短信
+	 */
+	public static String	SendChannel_SMS			= "SMS";
+	/**
+	 * 接口信息发送渠道:微信
+	 */
+	public static String	SendChannel_WX			= "WX";
+	/**
+	 * 接口信息发送渠道:全部
+	 */
+	public static String	SendChannel_ALL			= "ALL";
 }

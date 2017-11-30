@@ -72,6 +72,12 @@ public class SmsSendBean extends SmRequest
 	 * 接口短信发送是否定时发送(默认为空，如果要求为定时发送，则要求时间字符串必须正确)
 	 */
 	private String				SendTime = "";
+	/**
+	 *  消息发送通道，(为空或不传本参数时默认为SMS)
+	 * 	WX:通过微信发送
+	 * 	ALL:同时发短信和微信
+	 */
+	private String				SendChannel	= "SMS";
 
 	//
 	public String getMobiles()
@@ -241,5 +247,15 @@ public class SmsSendBean extends SmRequest
 	public void setSendTime(String sendTime)
 	{
 		SendTime = sendTime;
+	}
+	
+	public String getSendChannel()
+	{
+		return SendChannel;
+	}
+
+	public void setSendChannel(String sendChannel)
+	{
+		SendChannel = sendChannel;
 	}
 }

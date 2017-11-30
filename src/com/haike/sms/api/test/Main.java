@@ -23,20 +23,20 @@ public class Main
 	/**
 	 * 接口调用时使用的系统用户名(实际项目中从配置中获取)
 	 */
-	private static String	account = "zztest";
+	private static String	account = "zzadmin";
 	
 	/**
 	 * 接口调用时使用的系统用户对应的密码(实际项目中从配置中获取)
 	 */
-	private static String	password = "111111";
+	private static String	password = "123456";
 	/**
 	 * 接口调用时使用的接口编码(实际项目中从配置中获取)
 	 */
-	private static String	apiCode  = "hkapi";
+	private static String	apiCode  = "siapi";
 	/**
 	 * 接口服务器的目标地址(实际项目中从配置中获取)
 	 */
-	private static String  endpoint = "http://127.0.0.1:8080/";
+	private static String  endpoint = "http://192.168.22.69:18080/sms/";
 	/**
 	 * 接口是否在调试状态(实际项目中从配置中获取)
 	 */
@@ -58,17 +58,16 @@ public class Main
 		//
 		//发送短信必须调用接口(下面二个二选一或根据实际情况都使用)
 		//单发短信接口测试(请改写getSmsSendBean方法以生成不同的发送请求bean)
-		//SmsSendBean 	bean 		= getSmsSendBean(ApiConstant.OperType_SmsSend);
+		SmsSendBean 	bean 		= getSmsSendBean(ApiConstant.OperType_SmsSend);
 		//多发测试(请改写getSmsSendBean方法以生成不同的发送请求bean)
-		/*
-		SmsSendBean 	bean 		= getSmsSendBean(ApiConstant.OperType_SmsSendMuli);
+		
+		//SmsSendBean 	bean 		= getSmsSendBean(ApiConstant.OperType_SmsSendMuli);
 		SmsSendRespBean respBean 	= api.sendSms(bean);
 		//返回有token时一定应答成功或部分成功
 		if(StringUtils.isNotEmpty(respBean.getToken()))
 		{
 			TokenUtils.getInstance().updateToken(respBean.getToken());
-		}*/
-		
+		}
 		//---------------------------------------------------------------------
 		//以下三个接口都不是必须的
 		//短信发送回执测试
@@ -76,13 +75,13 @@ public class Main
 		//SmsRptRespBean	respRptBean = api.recvRpt(rptBean);
 		
 		//接收短信
-		TokenUtils.getInstance().updateToken("48405adf18ac1310e36e3c0539650aeb");
-		SmsRecvBean recvBean			= getSmsRecvBean();
-		SmsRecvRespBean respRecvBean	= api.recvSms(recvBean);
+		//TokenUtils.getInstance().updateToken("48405adf18ac1310e36e3c0539650aeb");
+		//SmsRecvBean recvBean			= getSmsRecvBean();
+		//SmsRecvRespBean respRecvBean	= api.recvSms(recvBean);
 		
 		//心跳操作
-		SmsActiveBean activeBean 		= getSmsActiveBean();
-		SmsActiveRespBean respActiveBean= api.sendActive(activeBean);
+		//SmsActiveBean activeBean 		= getSmsActiveBean();
+		//SmsActiveRespBean respActiveBean= api.sendActive(activeBean);
 	}
 	
 	/**
@@ -99,6 +98,8 @@ public class Main
 		bean.setPassword(password);
 		bean.setApiCode(apiCode);
 		bean.setSnapTime(StringUtils.getSnapTime());
+		//设置发送通道(all:全部(短信和微信),sms短信,wx微信)
+		bean.setSendChannel(ApiConstant.SendChannel_ALL);
 		//
 		if(OperType.equalsIgnoreCase(ApiConstant.OperType_SmsSend))
 		{
@@ -107,7 +108,7 @@ public class Main
 			//
 			//设置目标手机号，大于0个，不超过500个
 			bean.setMobiles("13598825428,13503715693");
-			bean.setContent("测试短信");
+			bean.setContent("测试短信11");
 		}
 		else if(OperType.equalsIgnoreCase(ApiConstant.OperType_SmsSendMuli))
 		{

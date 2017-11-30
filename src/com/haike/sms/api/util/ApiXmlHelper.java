@@ -92,6 +92,7 @@ public class ApiXmlHelper
 		si.append("<useoriginaladdr>"+ bean.isUseOriginalAddr() +"</useoriginaladdr>");
 		si.append("<sendattime>"+ bean.isSendAtTime() +"</sendattime>");
 		si.append("<sendtime>"+ bean.getSendTime() +"</sendtime>");
+		si.append("<sendchannel>"+ bean.getSendChannel() +"</sendchannel>");
 		si.append("</svccmd>");
 		si.append(xmlBodyEnd);
 		si.append(xmlHaikeMiscEnd);
